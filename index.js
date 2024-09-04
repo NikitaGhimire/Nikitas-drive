@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
+require("dotenv").config();
 
 const app = express();
 
@@ -11,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 //Session setup
 app.use(
   session({
-    secret: "your-secret-key",
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
   })
